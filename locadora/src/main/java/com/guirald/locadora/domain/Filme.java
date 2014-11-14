@@ -3,7 +3,13 @@ package com.guirald.locadora.domain;
 import java.io.Serializable;
 
 import javax.enterprise.context.Dependent;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 
+@Entity
 @Dependent
 public class Filme implements Serializable {
 
@@ -12,6 +18,9 @@ public class Filme implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
+	@Id
+	@GeneratedValue(generator = "filme_id_seq", strategy = GenerationType.SEQUENCE)
+	@SequenceGenerator(name = "filme_id_seq", sequenceName = "filme_id_seq", allocationSize = 1)
 	private Integer id;
 	private String titulo;
 	private Integer anoLancamento;

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:c="http://java.sun.com/jsp/jstl/core"
+xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Alugar Filme</title>
+</h:head>
+<h:body>
+	<h:messages />
+	
+	<h:form id="form">
+			<h2>Alugue o filme</h2>
+			<h:panelGrid columns="2">
+				<h:outputLabel value="Título" for="titulo" />
+				<h:selectOneMenu id="filme" value="#{filmeBean.filme.titulo}">
+					<f:selectItem itemLabel="2 Filhos de Francisco" itemValue="2 Filhos de Francisco"/>
+					<f:selectItem itemLabel="O Auto da Compadecida" itemValue="O Auto da Compadecida"/>
+					<f:selectItem itemLabel="Se Eu Fosse Você" itemValue="Se Eu Fosse Você"/>
+					<f:selectItem itemLabel="Tropa de Elite" itemValue="Tropa de Elite"/>
+				</h:selectOneMenu>
+				
+				<h:outputLabel value="Ano de Lançamento" for="anoLancamento" />
+				<h:inputText id="anoLancamento" value="#{filmeBean.filme.anoLancamento}" />
+			</h:panelGrid>
+			
+			<h:commandButton styleClass="btn" action="{#filmeBean.alugarFilme}" value="Alugar" />
+	</h:form>
+</h:body>
+</html>
